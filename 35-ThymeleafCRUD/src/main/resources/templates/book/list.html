@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Knygų sąrašas</h1>
+	<table>
+		<thead>
+			<tr>
+			<th>Pavadinimas</th>
+			<th>Autorius</th>
+			<th>ISBN</th>
+			<th>Veiksmai</th>
+			
+			</tr>
+		
+		</thead>
+		
+	  <tbody>
+	  	<tr th:each="book : ${books}">
+			<td th:text="${book.title}"></td>	  	
+			<td th:text="${book.author}"></td>	  	
+			<td th:text="${book.isbn}"></td>	
+			<td>
+				<a th:href="@{/books/edit/{id}(id=${book.id})}">Edit</a>
+				<a th:href="@{/books/delete/{id}(id=${book.id})}" onclick="return confirm('Ar tikrai norite istrinti?');" >Delete</a>
+			</td>  	
+	  	</tr>
+	 </tbody>
+	 
+	</table>
+	
+	<a href="/books/new">Pridėti naują knygą</a>
+</body>
+</html>

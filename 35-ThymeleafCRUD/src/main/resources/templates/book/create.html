@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<h1>Pridėti naują knygą</h1>
+	
+	<form action="#" th:action="@{/books}" th:object="${book}" method="post"  >
+		<label>Pavadinimas:</label>
+		<input type="text" th:field="*{title}" /><br>
+		
+		<label>Autorius:</label>
+		<input type="text" th:field="*{author}" /><br>
+		
+		<label>ISBN:</label>
+		<input type="text" th:field="*{isbn}" /><br>
+		
+		<button type="submit">Išsaugoti</button>
+	</form>
+	<a href="/books">Grįžti į sąrašą</a>
+</body>
+</html>
